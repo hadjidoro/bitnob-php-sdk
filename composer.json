@@ -1,13 +1,13 @@
 {
-    "name": "bitnob/bitnob-php-sdk",
-    "description": "Official PHP SDK to interact with Bitnob's API",
-    "version": "2.0.4",
+    "name": "hadjidoro/bitnob-php-sdk",
+    "description": "No Official PHP SDK to interact with Bitnob's API",
+    "version": "1.0.0",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Gideon Kombian",
-            "email": "gidkom@bitnob.com"
+            "name": "Doro Gueye",
+            "email": "doro.gueye@gmail.com"
         }
     ],
     "minimum-stability": "dev",
@@ -28,7 +28,7 @@
         "sort-packages": true
     },
     "require": {
-        "php": "^7. || ^8.0",
+        "php": "^8.1",
         "php-http/client-common": "^2.3",
         "php-http/discovery": "^1.12",
         "php-http/guzzle7-adapter": "v1.0.0",
