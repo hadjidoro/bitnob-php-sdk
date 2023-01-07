@@ -58,9 +58,9 @@ final class VirtualCards
         return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/registercarduser", [], json_encode($data)));
     }
 
-    public function createCard(string $customerEmail): array
+    public function createCard(array $data): array
     {
-        return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/create", [], json_encode(compact('customerEmail'))));
+        return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/create", [], json_encode($data)));
     }
 
     /**
