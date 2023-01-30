@@ -29,6 +29,11 @@ final class Wallets
                 json_encode(compact('satoshis', 'address', 'customerEmail', 'description', 'priorityLevel'))));
     }
 
+    public function getBTCRecommendedFees(): array
+    {
+        return ResponseMediator::getContent($this->sdk->getHttpClient()->get("$this->baseUri/recommended-fees/btc"));
+    }
+
     public function createInvoice(float $tokens, string $customerEmail, string $description): array
     {
         return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/ln/createinvoice", [],
@@ -62,14 +67,14 @@ final class Wallets
                 json_encode(compact('request'))));
     }
 
-    public function sendUsdc(float $amount, string $address, string $chain, string $customerEmail, string $description): array {
+    public function sendUsdc(float $amount, string $address, string $chain, string $customerEmail, string $reference, string $description): array {
         return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/send-usdc", [],
-                json_encode(compact('amount', 'address', 'description', 'chain', 'customerEmail'))));
+                json_encode(compact('amount', 'address', 'description', 'chain', 'customerEmail', 'reference'))));
     }
 
-    public function sendUsdt(float $amount, string $address, string $chain, string $customerEmail, string $description): array {
+    public function sendUsdt(float $amount, string $address, string $chain, string $customerEmail, string $reference, string $description): array {
         return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/send-usdt", [],
-                json_encode(compact('amount', 'address', 'description', 'chain', 'customerEmail'))));
+                json_encode(compact('amount', 'address', 'description', 'chain', 'customerEmail', 'reference'))));
     }
 
 }
