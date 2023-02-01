@@ -23,11 +23,6 @@ final class Addresses
         return ResponseMediator::getContent($this->sdk->getHttpClient()->get("$this->baseUri?page=$page"));
     }
 
-    public function generate(string $customerEmail, string $label = ''): array
-    {
-        return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/generate", [], json_encode(compact('customerEmail', 'label'))));
-    }
-
     public function getAddressDetails(string $address): array
     {
         return ResponseMediator::getContent($this->sdk->getHttpClient()->get("$this->baseUri/fetch/$address"));
@@ -38,6 +33,11 @@ final class Addresses
         return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/validate", [], json_encode(compact('address'))));
     }
 
+    public function generateBtcAddress(string $customerEmail, string $label = ''): array
+    {
+        return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/generate", [], json_encode(compact('customerEmail', 'label'))));
+    }
+
     public function generateUsdcAddress(string $customerEmail, string $chain = 'TRX', string $label = ''): array
     {
         return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/generate/usdc", [], json_encode(compact('chain', 'customerEmail', 'label'))));
@@ -46,12 +46,6 @@ final class Addresses
     public function generateUsdtAddress(string $customerEmail, string $chain = 'TRX', string $label = ''): array
     {
         return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/generate/usdt", [], json_encode(compact('chain', 'customerEmail', 'label'))));
-    }
-    
-
-    public function generateBtcAddress(string $customerEmail, string $formatType = 'bip21'): array
-    {
-        return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/generate", [], json_encode(compact('customerEmail', 'formatType'))));
     }
 
 }
