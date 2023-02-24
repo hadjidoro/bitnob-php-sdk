@@ -71,9 +71,9 @@ final class VirtualCards
         return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/topup", [], json_encode(compact('amount', 'cardId', 'reference'))));
     }
 
-    public function withdraw(int $amount, string $cardId): array
+    public function withdraw(int $amount, string $cardId, string $reference): array
     {
-        return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/withdraw", [], json_encode(compact('amount', 'cardId'))));
+        return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/withdraw", [], json_encode(compact('amount', 'cardId', 'reference'))));
     }
 
     public function freezeCard(string $cardId): array
