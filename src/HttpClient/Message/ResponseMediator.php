@@ -10,6 +10,6 @@ final class ResponseMediator
 {
     public static function getContent(ResponseInterface $response): array
     {
-        return json_decode($response->getBody()->getContents(), true);
+        return json_decode($response->getBody()->getContents(), true) ?: [];
     }
 }

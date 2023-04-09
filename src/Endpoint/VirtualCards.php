@@ -36,7 +36,7 @@ final class VirtualCards
 
     public function listCards(int $page = 1): array
     {
-        return ResponseMediator::getContent($this->sdk->getHttpClient()->get("$this->baseUri/cards?page=$page"));
+        return $this->list($page);
     }
 
     public function getCardUser(string $id): array
