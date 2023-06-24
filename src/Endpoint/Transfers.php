@@ -7,7 +7,7 @@ namespace Bitnob\Client\Endpoint;
 use Bitnob\Client\HttpClient\Message\ResponseMediator;
 use Bitnob\Client\BitnobSdk;
 
-final class Transfer
+final class Transfers
 {
     private BitnobSdk $sdk;
     private string $baseUri;

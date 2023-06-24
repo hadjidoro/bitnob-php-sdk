@@ -13,6 +13,8 @@ use Bitnob\Client\Endpoint\Checkout;
 use Bitnob\Client\Endpoint\Swap;
 use Bitnob\Client\Endpoint\VirtualCards;
 use Bitnob\Client\Endpoint\CheckoutTemplates;
+use Bitnob\Client\Endpoint\Transfer;
+use Bitnob\Client\Endpoint\Transfers;
 use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\BaseUriPlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
@@ -92,6 +94,12 @@ final class BitnobSdk
         return new Endpoint\ExchangeRates($this);
     }
 
+    // Register Mobile Money Transfer API
+    public function transfers(): Transfers
+    {
+        return new Endpoint\Transfers($this);
+    }
+        
     // Register Checkout Templates API
     public function checkoutTemplates(): CheckoutTemplates
     {
