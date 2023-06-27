@@ -13,7 +13,6 @@ use Bitnob\Client\Endpoint\Checkout;
 use Bitnob\Client\Endpoint\Swap;
 use Bitnob\Client\Endpoint\VirtualCards;
 use Bitnob\Client\Endpoint\CheckoutTemplates;
-use Bitnob\Client\Endpoint\Transfer;
 use Bitnob\Client\Endpoint\Transfers;
 use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\BaseUriPlugin;
