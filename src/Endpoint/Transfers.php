@@ -23,9 +23,9 @@ final class Transfers
         return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/account-detail-lookup", [], json_encode(compact('bankCode', 'type', 'accountNumber'))));
     }
 
-    public function transfer(string $bankCode, string $type, string $accountNumber): array
+    public function transfer(array $params): array
     {
-        return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/initiate", [], json_encode(compact('bankCode', 'type', 'accountNumber'))));
+        return ResponseMediator::getContent($this->sdk->getHttpClient()->post("$this->baseUri/initiate", [], json_encode($params)));
     }
 
     public function transferPay(string $id, string $reference, string $customerEmail, string $wallet): array
